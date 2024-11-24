@@ -4,6 +4,7 @@ import language_tool_python
 import string
 
 from textstat import flesch_reading_ease, flesch_kincaid_grade
+from spellchecker import SpellChecker
 from transformers import pipeline
 
 def calculate_readability(text):
@@ -46,8 +47,6 @@ essay = st.text_area('Enter your essay here:', height=200)
 
 if st.button('Grade Essay'):
     if essay:
-        grade = grade_essay(essay)
-        
-        st.write(f"Your Essay Grade: {grade}")
+        grade_essay(essay)
     else:
         st.write("Please enter an essay before grading.")
